@@ -127,6 +127,7 @@ body {
   right: 30px;
   bottom: 30px;
   z-index: 20;
+
   a {
     display: block;
     color: white;
@@ -136,4 +137,9 @@ body {
   &:hover {
   opacity: 0.7;
   }
+}
+
+.flash {
+  color: black;
+  padding-top: 10px;
 }
