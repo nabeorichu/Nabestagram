@@ -13,27 +13,28 @@
       <div class="field">
         <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
       </div>
-
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-
-      <div class="field">
-
-        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "新しいパスワード" %>
-        <% if @minimum_password_length %>
-          <br />
-          <em>パスワードは<%= @minimum_password_length %> 文字以上で入力してください</em>
+      <% if @user.provider.blank? %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
-      </div>
 
-      <div class="field">
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "新しいパスワード（確認）" %>
-      </div>
+        <div class="field">
 
-      <div class="field">
-        <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "現在のパスワード" %>
-      </div>
+          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "新しいパスワード" %>
+          <% if @minimum_password_length %>
+            <br />
+            <em>パスワードは<%= @minimum_password_length %> 文字以上で入力してください</em>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "新しいパスワード（確認）" %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "現在のパスワード" %>
+        </div>
+      <% end %>
 
       <div class="actions">
         <%= f.submit "プロフィールを編集する", class: "btn btn-primary btn-block" %>
