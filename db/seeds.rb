@@ -6,8 +6,8 @@
                password: password,
                password_confirmation: password,
                name: name,
-               uid: rand(10) + 1,
-               provider: rand(10) + 1,
+               uid: rand(200) + 1,
+               provider: rand(200) + 1,
                )
 end
 
