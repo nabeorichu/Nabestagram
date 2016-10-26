@@ -4,13 +4,26 @@
     <%= form_for(@picture) do |f| %>
       <%= f.hidden_field :title %>
       <%= f.hidden_field :content %>
+      <%= f.hidden_field :image %>
       <p>タイトル:<%= @picture.title %></p>
       <p>本文:<%= @picture.content %></p>
+      <div class="field">
+        <% if @picture.image? %>
+          <div class="thumbnail">
+          <p>投稿画像</p><br>
+            <%= image_tag @picture.image.url %>
+          </div>
+        <% end %><br>
+
+        <%= f.hidden_field :image %>
+      </div>
       <%= f.submit "登録する", class: 'btn btn-primary btn-block' %>
     <% end %>
     <%= form_for(@picture, url: new_picture_path, method: 'get') do |f| %>
       <%= f.hidden_field :title %>
       <%= f.hidden_field :content %>
+      <%= f.hidden_field :image_cache %>
+
       <%= f.submit "もどる", name: 'back', class: 'btn btn-default btn-block' %>
     <% end %>
   </div>
