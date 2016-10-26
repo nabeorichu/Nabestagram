@@ -7,8 +7,11 @@
     <div class="row">
       <h4><strong><%= picture.title %></strong></h4>
       <p><%= picture.content %></p>
-      <p>投稿者<%= picture.user.name %></p
+      <p>投稿者<%= picture.user.name %></p>
+      <% if picture.image? %>
         <p>投稿画像<%= image_tag picture.image %></p>
+      <% end %>
+
 
 
 
